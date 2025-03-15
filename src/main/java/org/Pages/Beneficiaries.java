@@ -13,16 +13,16 @@ public class Beneficiaries {
     private WebDriverWait wait;
 
     /*****************************************************          Step  1    ********************************************************************/
-    By add_Beneficiaries_Button = By.xpath("//*[@id=\"content\"]/div/div/app-beneficiary-list/div/div/div[2]/a");
+    By add_Beneficiaries_Button = By.xpath("//a[contains(text(),'اضافة سيدة')]");
     By Name = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[2]/div[1]/input");
     By Natonaial_ID = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[2]/div[2]/input");
     By Phone = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[3]/div[1]/input");
     By Margie_Statues_Radio_Button_NotMarred = By.xpath("//*[@id=\"maritalStatus-1\"]");
-    By Governate_Box = By.xpath("//*[@id=\"pn_id_1\"]/div");
-    By Govrnaete = By.xpath("//*[@id=\"pn_id_3_0\"]");
-    By Center_Box = By.xpath("//*[@id=\"pn_id_3\"]/div");
-    By Center = By.xpath("//*[@id=\"pn_id_19_0\"]");
-    By Address = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[6]/div/input");
+    By Governate_Box = By.xpath("//span[@aria-label='اختر المحافظة']");
+    By Govrnaete = By.xpath("//span[@class='ng-star-inserted'][contains(text(),'الاسكندرية')]");
+    By Center_Box = By.xpath("//span[@aria-label='اختر المركز / القسم']");
+    By Center = By.xpath("//span[@class='ng-star-inserted'][contains(text(),'الرمل')]");
+    By Address = By.xpath("//input[@placeholder='ادخل العنوان بالتفصيل']");
     By Working_Statues_Radio_Button = By.xpath("//*[@id=\"workStatus-1\"]");
     By Education_Radio_Button = By.xpath("//*[@id=\"studyStatus-1\"]");
     By Health_Radio_Button = By.xpath("//*[@id=\"healthStatus-1\"]");
@@ -59,29 +59,32 @@ public class Beneficiaries {
     By Method_Not_Using = By.xpath("//*[@id=\"stopReasonId-2\"]");
     By Next_step4 = By.xpath("//*[@id=\"cdk-stepper-0-content-3\"]/app-used-method-form/form/div[5]/button[2]");
     /*****************************************************          Step 5    ********************************************************************/
-    By kid_age_month = By.xpath("//*[@id=\"cdk-stepper-0-content-4\"]/app-child-form/form/div[3]/div[1]/div/div/div[1]/input");
-    By kid_age_year = By.xpath("//*[@id=\"cdk-stepper-0-content-4\"]/app-child-form/form/div[3]/div[1]/div/div/div[2]/input");
-    By kid_sex = By.xpath("//*[@id=\"gender-0-1\"]");
-    By kid_martial = By.xpath("//*[@id=\"maritalStatusId-0-5\"]");
-    By kid_education = By.xpath("//*[@id=\"studyStatusId-0-8\"]");
-    By kid_work_status = By.xpath("//*[@id=\"workStatusId-0-5\"]");
-    By kid_health = By.xpath("//*[@id=\"healthStatusId-0-4\"]");
-    By Next_Step5 = By.xpath("//*[@id=\"cdk-stepper-0-content-4\"]/app-child-form/form/div[8]/button[2]");
+    By kid_martial_Married = By.xpath("//input[@id='maritalStatusId-0-5']");
+    By getKid_martial_Single = By.xpath("//input[@id='maritalStatusId-0-6']");
+    By kid_age_month = By.xpath("//input[@placeholder='ادخل شهر']");
+    By kid_age_year = By.xpath("//input[@placeholder='ادخل سنة']");
+    By sex_male = By.xpath("//input[@id='gender-0-1']");
+    By sex_female = By.xpath("//input[@id='gender-0-2']");
+    By kid_education = By.xpath("//input[@id='studyStatusId-0-8']");
+    By kid_work_status = By.xpath("//input[@id='workStatusId-0-5']");
+    By kid_health = By.xpath("//input[@id='healthStatusId-0-4']");
+    By Next_Step5 = By.xpath("(//button[@type='button'][contains(text(),'التالى')])[5]");
 
     /*****************************************************          final Stage  2    ********************************************************************/
-    By Confirm_Button = By.xpath("//*[@id=\"cdk-stepper-0-content-5\"]/div[2]/button[2]");
+
+    By Confirm_Button = By.xpath("//button[contains(text(),'تأكيد')]");
     /******************************************************************************************************************/
 
     public Beneficiaries(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.actions = new Actions(driver);
+
     }
-    public void AddBeneficiariesButton() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(add_Beneficiaries_Button)).click();
-    }
+
     public void createBenefiters_Step1(String NID, String MOB_NUM,String Addriss) throws InterruptedException {
         try {
+            wait.until(ExpectedConditions.elementToBeClickable(add_Beneficiaries_Button)).click();
             wait.until(ExpectedConditions.elementToBeClickable(Name)).sendKeys("سلمي محمد محمد");
             wait.until(ExpectedConditions.elementToBeClickable(Natonaial_ID)).sendKeys(NID);
             wait.until(ExpectedConditions.elementToBeClickable(Phone)).sendKeys(MOB_NUM);
@@ -183,11 +186,13 @@ public void CreatBenfiters_Married_Step2(String NID){
     }
     public void CreatBenfiters_Married_Step5(String Age_month , String Age_Year){
         try{
+//            wait.until(ExpectedConditions.elementToBeClickable(kid_martial_Married)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(getKid_martial_Single)).click();
             wait.until(ExpectedConditions.elementToBeClickable(kid_age_month)).sendKeys(Age_month);
             wait.until(ExpectedConditions.elementToBeClickable(kid_age_year)).sendKeys(Age_Year);
-            wait.until(ExpectedConditions.elementToBeClickable(kid_sex)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(sex_male)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(sex_female)).click();
             actions.sendKeys(Keys.PAGE_DOWN).perform();
-            wait.until(ExpectedConditions.elementToBeClickable(kid_martial)).click();
             wait.until(ExpectedConditions.elementToBeClickable(kid_education)).click();
             Thread.sleep(500);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -206,6 +211,13 @@ public void CreatBenfiters_Married_Step2(String NID){
 
     public void CreatBenfiters_Married_LastStage(){
         try{
+            Thread.sleep(500);
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            Thread.sleep(500);
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             wait.until(ExpectedConditions.elementToBeClickable(Confirm_Button)).click();
         }
         catch (TimeoutException e) {

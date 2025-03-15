@@ -17,10 +17,12 @@ public class TC2_Married_Widow_Divorced extends Setup {
     public void URL_OPEN() throws InterruptedException {
         driver.get(config_knocingDoors.getProperty("Knocing_url"));
         loginPage.login(config_knocingDoors.getProperty("username"),config_knocingDoors.getProperty("password"));
-    }
+        }
+
     @Test (priority = 1)
     public void step1() throws InterruptedException {
-    benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"),
+
+        benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"),
             config_knocingDoors.getProperty("MOB_NUM") , config_knocingDoors.getProperty("Addres"));
     }
     @Test (priority = 2)
@@ -44,7 +46,7 @@ public class TC2_Married_Widow_Divorced extends Setup {
     }
     @Test (priority = 6)
     public void LastStep(){
-//        benfiters.CreatBenfiters_Married_LastStage();
+        benfiters.CreatBenfiters_Married_LastStage();
     }
     @AfterClass
     public void Quit(){
