@@ -23,7 +23,7 @@ public class TC2_Married_Widow_Divorced extends Setup {
     public void step1() throws InterruptedException {
 
         benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"),
-            config_knocingDoors.getProperty("MOB_NUM") , config_knocingDoors.getProperty("Addres"));
+            config_knocingDoors.getProperty("MOB_NUM"));
     }
     @Test (priority = 2)
     public void Step2(){

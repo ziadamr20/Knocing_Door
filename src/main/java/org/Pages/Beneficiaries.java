@@ -59,7 +59,7 @@ public class Beneficiaries {
     By Method_Not_Using = By.xpath("//*[@id=\"stopReasonId-2\"]");
     By Next_step4 = By.xpath("//*[@id=\"cdk-stepper-0-content-3\"]/app-used-method-form/form/div[5]/button[2]");
     /*****************************************************          Step 5    ********************************************************************/
-    By kid_martial_Married = By.xpath("//input[@id='maritalStatusId-0-5']");
+//    By kid_martial_Married = By.xpath("//input[@id='maritalStatusId-0-5']");
     By getKid_martial_Single = By.xpath("//input[@id='maritalStatusId-0-6']");
     By kid_age_month = By.xpath("//input[@placeholder='ادخل شهر']");
     By kid_age_year = By.xpath("//input[@placeholder='ادخل سنة']");
@@ -82,7 +82,7 @@ public class Beneficiaries {
 
     }
 
-    public void createBenefiters_Step1(String NID, String MOB_NUM,String Addriss) throws InterruptedException {
+    public void createBenefiters_Step1(String NID, String MOB_NUM){
         try {
             wait.until(ExpectedConditions.elementToBeClickable(add_Beneficiaries_Button)).click();
             wait.until(ExpectedConditions.elementToBeClickable(Name)).sendKeys("سلمي محمد محمد");
