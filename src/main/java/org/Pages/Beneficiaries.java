@@ -14,9 +14,9 @@ public class Beneficiaries {
 
     /*****************************************************          Step  1    ********************************************************************/
     By add_Beneficiaries_Button = By.xpath("//a[contains(text(),'اضافة سيدة')]");
-    By Name = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[2]/div[1]/input");
-    By Natonaial_ID = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[2]/div[2]/input");
-    By Phone = By.xpath("//*[@id=\"cdk-stepper-0-content-0\"]/app-lady-form/form/div[3]/div[1]/input");
+    By Name = By.xpath("//input[@placeholder='ادخل اسم السيدة']");
+    By Natonaial_ID = By.xpath("//input[@placeholder='ادخل الرقم القومى للسيدة']");
+    By Phone = By.xpath("//input[@placeholder='ادخل رقم تليفون السيدة']");
     By Margie_Statues_Radio_Button_NotMarred = By.xpath("//*[@id=\"maritalStatus-1\"]");
     By Governate_Box = By.xpath("//span[@aria-label='اختر المحافظة']");
     By Govrnaete = By.xpath("//span[@class='ng-star-inserted'][contains(text(),'الاسكندرية')]");

@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -26,6 +27,27 @@ public class Setup {
         loginPage = new Knocing_Login(driver);
         benfiters = new Beneficiaries(driver);
         NotMarried = new Benfeficiaries_NotMarried(driver);
+    }
+    public void increaseNID() throws IOException {
+        // قراءة قيمة الـ NID الحالية
+        String nidValue = config_knocingDoors.getProperty("NID");
+        long currentNID = Long.parseLong(nidValue); // تحويلها إلى رقم
+        currentNID++; // زيادتها +1
+        long lastTwoDigits = currentNID % 100; // مثال: 69 في 29711112111169
+        long tensDigit = lastTwoDigits / 10;  // الرقم في خانة العشرات فقط
 
+        // التأكد أن خانة العشرات زوجية
+        if (tensDigit % 2 != 0) { // لو خانة العشرات فردية
+            currentNID += 10; // تزود 10 علشان تخلي خانة العشرات زوجية
+            currentNID -= (currentNID % 10); // تجعل آخر خانة صفر للحفاظ على الترتيب
+        }
+        config_knocingDoors.setProperty("NID", String.valueOf(currentNID));
+
+        // حفظ التعديلات في ملف properties
+        try (FileOutputStream output = new FileOutputStream("path_to_knocingDoors.properties")) {
+            config_knocingDoors.store(output, null);
+        }
+
+        System.out.println("Updated NID: " + currentNID);
     }
 }

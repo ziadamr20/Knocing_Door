@@ -10,9 +10,11 @@ import java.io.IOException;
 public class TC2_Married_Widow_Divorced extends Setup {
 
     @BeforeClass
-    public void Setup() throws IOException {
+    public void Setup_browser_() throws IOException {
         setup_browser();
+        increaseNID(); // تحديث قيمة الـ NID أولاً
     }
+
     @Test (priority = 0)
     public void URL_OPEN() throws InterruptedException {
         driver.get(config_knocingDoors.getProperty("Knocing_url"));
@@ -21,8 +23,7 @@ public class TC2_Married_Widow_Divorced extends Setup {
 
     @Test (priority = 1)
     public void step1() throws InterruptedException {
-
-        benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"),
+            benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"),
             config_knocingDoors.getProperty("MOB_NUM"));
     }
     @Test (priority = 2)
@@ -50,6 +51,8 @@ public class TC2_Married_Widow_Divorced extends Setup {
     }
     @AfterClass
     public void Quit(){
-//        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
