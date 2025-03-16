@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: Maven@3
+    displayName: ' Install Dependencies'
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'install'
+      options: '-DskipTests=true'
+
+  - script: |
+      echo " Running Selenium Tests..."
+      mvn test
+    displayName: ' Run Selenium Tests'
+
+  - task: PublishTestResults@2
+    displayName: ' Publish Test Results'
+    inputs:
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testRunTitle: 'Selenium Test Results'
+
+  - task: PublishBuildArtifacts@1
+    displayName: ' Upload Test Reports'
+    inputs:
+      pathToPublish: 'target/surefire-reports/'
+      artifactName: 'TestResults'

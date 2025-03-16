@@ -18,12 +18,12 @@ public class TC3_Repeated_Form extends Setup {
 
     @Test(priority = 0)
     public void cycling_loop() throws IOException, InterruptedException {
-        while (true) {  // ✅ تكرار لا نهائي
+        while (true) {
             driver.navigate().refresh();
 
             System.out.println("🔄 Starting New Cycle...");
 
-            increaseNID(); // ✅ تحديث قيمة الـ NID في كل دورة
+            increaseNID();
             benfiters.createBenefiters_Step1(config_knocingDoors.getProperty("NID"), config_knocingDoors.getProperty("MOB_NUM"));
 
             benfiters.CreatBenfiters_Married_Step2(config_knocingDoors.getProperty("Hasband_NID"));
@@ -45,12 +45,11 @@ public class TC3_Repeated_Form extends Setup {
             );
 
             benfiters.CreatBenfiters_Married_LastStage();
-            Thread.sleep(3000);  // انتظر 3 ثواني بين كل دورة
+            Thread.sleep(3000);
             System.out.println("✅ Cycle Finished! Restarting...\n");
 
-            // 💤 إضافة وقت انتظار بسيط عشان الـ browser ميفضلش يضغط السيرفر
             try {
-                Thread.sleep(3000);  // انتظر 3 ثواني بين كل دورة
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
