@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Suite">
+    <test name="Knocking Door Tests">
+        <classes>
+            <class name="org.Pages.TC2_Married_With_Child"/>
+            <class name="org.Pages.TC3_Repeated_Form_Married_WithChild"/>
+            <class name="org.Pages.TC_1_NotMarried"/>
+        </classes>
+    </test>
+</suite>

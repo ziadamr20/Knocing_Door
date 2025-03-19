@@ -13,7 +13,7 @@ public class Setup {
     protected WebDriver driver;
     protected Properties config_knocingDoors;
     protected Knocing_Login loginPage;
-    protected Beneficiaries benfiters;
+    protected Beneficiaries_Married benfiters;
     protected Benfeficiaries_NotMarried  NotMarried;
 
     public void setup_browser() throws IOException {
@@ -25,7 +25,7 @@ public class Setup {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         loginPage = new Knocing_Login(driver);
-        benfiters = new Beneficiaries(driver);
+        benfiters = new Beneficiaries_Married(driver);
         NotMarried = new Benfeficiaries_NotMarried(driver);
     }
     public void increaseNID() throws IOException {

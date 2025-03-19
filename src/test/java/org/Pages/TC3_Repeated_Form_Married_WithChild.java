@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class TC3_Repeated_Form extends Setup {
+public class TC3_Repeated_Form_Married_WithChild extends Setup {
 
     @BeforeClass
     public void Setup_browser_() throws IOException, InterruptedException {

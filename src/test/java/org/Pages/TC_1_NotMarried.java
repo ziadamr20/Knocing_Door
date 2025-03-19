@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class TC_1DriverNotMarried extends Setup {
+public class TC_1_NotMarried extends Setup {
 
     @BeforeClass
     public void Setup() throws IOException {
@@ -30,6 +30,6 @@ public class TC_1DriverNotMarried extends Setup {
 
     @AfterClass
     public void Quit(){
-//        driver.quit();
+        driver.quit();
     }
 }

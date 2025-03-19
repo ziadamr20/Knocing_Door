@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class TC2_Married_Widow_Divorced extends Setup {
+public class TC2_Married_With_Child extends Setup {
 
     @BeforeClass
     public void Setup_browser_() throws IOException {
@@ -52,7 +52,7 @@ public class TC2_Married_Widow_Divorced extends Setup {
     @AfterClass
     public void Quit(){
         if (driver != null) {
-            driver.quit();
+//            driver.quit();
         }
     }
 }
