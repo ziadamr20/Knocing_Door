@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class TC_1_NotMarried extends Setup {
+public class TC1_NotMarried extends Setup {
 
     @BeforeClass
     public void Setup() throws IOException {
@@ -21,7 +21,7 @@ public class TC_1_NotMarried extends Setup {
     @Test (priority = 1)
     public void Add_Benfeficary() throws InterruptedException {
         NotMarried.createBenefiters_NotMarried_Step1(config_knocingDoors.getProperty("NID")
-                ,config_knocingDoors.getProperty("MOB_NUM") , config_knocingDoors.getProperty("Addres"));
+                ,config_knocingDoors.getProperty("MOB_NUM"));
     }
     @Test (priority = 2)
     public void Add_Benficary_LastStage(){

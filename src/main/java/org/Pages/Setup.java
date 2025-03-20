@@ -13,8 +13,9 @@ public class Setup {
     protected WebDriver driver;
     protected Properties config_knocingDoors;
     protected Knocing_Login loginPage;
-    protected Beneficiaries_Married benfiters;
+    protected Beneficiaries_Paths_Methods benfiters;
     protected Benfeficiaries_NotMarried  NotMarried;
+    protected Beneficaries_Deforce_Paths Deforce;
 
     public void setup_browser() throws IOException {
         FileInputStream fis = new FileInputStream("src/main/resources/config_knocingDoors.properties");
@@ -25,8 +26,9 @@ public class Setup {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         loginPage = new Knocing_Login(driver);
-        benfiters = new Beneficiaries_Married(driver);
+        benfiters = new Beneficiaries_Paths_Methods(driver);
         NotMarried = new Benfeficiaries_NotMarried(driver);
+        Deforce = new Beneficaries_Deforce_Paths(driver);
     }
     public void increaseNID() throws IOException {
         String nidValue = config_knocingDoors.getProperty("NID");

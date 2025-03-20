@@ -18,6 +18,7 @@ public class Benfeficiaries_NotMarried {
     By Natonaial_ID = By.xpath("//input[@placeholder='ادخل الرقم القومى للسيدة']");
     By Phone = By.xpath("//input[@placeholder='ادخل رقم تليفون السيدة']");
     By Margie_Statues_Radio_Button_NotMarred = By.xpath("//input[@id=\"maritalStatus-4\"]");
+
     By Governate_Box = By.xpath("//span[@aria-label='اختر المحافظة']");
     By Govrnaete = By.xpath("//span[@class='ng-star-inserted'][contains(text(),'الاسكندرية')]");
     By Center_Box = By.xpath("//span[@aria-label='اختر المركز / القسم']");
@@ -38,7 +39,7 @@ public class Benfeficiaries_NotMarried {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.actions = new Actions(driver);
     }
-    public void createBenefiters_NotMarried_Step1(String NID, String MOB_NUM,String Addriss) throws InterruptedException {
+    public void createBenefiters_NotMarried_Step1(String NID, String MOB_NUM) throws InterruptedException {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(add_Beneficiaries_Button)).click();
             wait.until(ExpectedConditions.elementToBeClickable(Name)).sendKeys("سلمي محمد محمد");
@@ -72,17 +73,19 @@ public class Benfeficiaries_NotMarried {
         }
     }
 
+
+
     public void CreatBenfiters_LastStage(){
         try{
             wait.until(ExpectedConditions.elementToBeClickable(Confirm_Button)).click();
         }
-    catch (TimeoutException e) {
-        System.out.println("حدث خطأ: العنصر لم يكن قابلاً للنقر عليه في الوقت المحدد. " + e.getMessage());
-    } catch (NoSuchElementException e) {
-        System.out.println("حدث خطأ: العنصر غير موجود في الصفحة. " + e.getMessage());
-    } catch (Exception e) {
-        System.out.println("حدث خطأ غير متوقع: " + e.getMessage());
-    }
+        catch (TimeoutException e) {
+            System.out.println("حدث خطأ: العنصر لم يكن قابلاً للنقر عليه في الوقت المحدد. " + e.getMessage());
+        } catch (NoSuchElementException e) {
+            System.out.println("حدث خطأ: العنصر غير موجود في الصفحة. " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("حدث خطأ غير متوقع: " + e.getMessage());
+        }
     }
 }
 
