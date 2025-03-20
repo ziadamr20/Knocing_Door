@@ -128,6 +128,8 @@ public class Beneficaries_Deforce_Paths {
             Thread.sleep(500);
             actions.sendKeys(Keys.TAB).perform();
             Thread.sleep(500);
+            actions.sendKeys(Keys.TAB).perform();
+            actions.sendKeys(Keys.ENTER).perform();
             wait.until(ExpectedConditions.elementToBeClickable(Next_step3)).click();
         }
         catch (TimeoutException e) {
@@ -159,6 +161,8 @@ public class Beneficaries_Deforce_Paths {
             Thread.sleep(500);
             actions.sendKeys(Keys.TAB).perform();
             Thread.sleep(500);
+            actions.sendKeys(Keys.TAB).perform();
+            actions.sendKeys(Keys.ENTER).perform();
             wait.until(ExpectedConditions.elementToBeClickable(Next_Step5)).click();
         }
         catch (TimeoutException e) {

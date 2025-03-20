@@ -40,11 +40,12 @@ public class TC5_Deforced extends Setup {
     @Test (priority = 4)
     public void LastStep(){
         Deforce.CreatBenfiters_Deforce_LastStage();
+
     }
     @AfterClass
     public void Quit(){
         if (driver != null) {
-//            driver.quit();
+            driver.quit();
         }
     }
 }
