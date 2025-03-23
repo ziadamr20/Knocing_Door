@@ -157,6 +157,8 @@ public void CreatBenfiters_Married_Step2(String NID){
             wait.until(ExpectedConditions.elementToBeClickable(Pregnanit_Month)).sendKeys(PregnantTime);
             wait.until(ExpectedConditions.elementToBeClickable(Pregnant_Tracking)).click();
             wait.until(ExpectedConditions.elementToBeClickable(Pregnant_Place)).click();
+            Thread.sleep(500);
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
             wait.until(ExpectedConditions.elementToBeClickable(Nurse_Vist)).click();
             Thread.sleep(500);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
