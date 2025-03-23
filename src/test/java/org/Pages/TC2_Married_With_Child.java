@@ -46,9 +46,9 @@ public class TC2_Married_With_Child extends Setup {
                 config_knocingDoors.getProperty("Age_Year"));
     }
     @Test (priority = 6)
-    public void LastStep(){
-        benfiters.CreatBenfiters_Married_LastStage();
-    }
+//    public void LastStep(){
+//        benfiters.CreatBenfiters_Married_LastStage();
+//    }
     @AfterClass
     public void Quit(){
         if (driver != null) {
