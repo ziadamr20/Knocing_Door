@@ -127,6 +127,9 @@ public void CreatBenfiters_Married_Step2(String NID){
             wait.until(ExpectedConditions.elementToBeClickable(Hasband_NID)).sendKeys(NID);
             actions.sendKeys(Keys.PAGE_DOWN).perform();
             wait.until(ExpectedConditions.elementToBeClickable(Hasband_Work_Statues)).click();
+            Thread.sleep(500);
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
             wait.until(ExpectedConditions.elementToBeClickable(Hasband_Education)).click();
             wait.until(ExpectedConditions.elementToBeClickable(Hasband_Health)).click();
             Thread.sleep(500);
