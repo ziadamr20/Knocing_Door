@@ -3,8 +3,11 @@
     <test name="Knocking Door Tests">
         <classes>
             <class name="org.Pages.TC2_Married_With_Child"/>
-            <class name="org.Pages.TC_1_NotMarried"/>
-            <class name="org.Pages.TC3_Repeated_Form_Married_WithChild"/>
+            <class name="org.Pages.TC1_NotMarried"/>
+            <class name="org.Pages.TC4_Married_with_No_Child"/>
+            <class name="org.Pages.TC5_Deforced"/>
+            <class name="org.Pages.TC3_Repeated_Form_Married_WithChild">
+            </class>
         </classes>
     </test>
 </suite>

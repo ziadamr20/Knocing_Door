@@ -13,7 +13,6 @@ public class Knocing_Login {
     By usernameField = By.xpath("/html/body/app-root/app-login/div/div/div[2]/form/div/div[1]/div/input");
     By passwordField = By.xpath("/html/body/app-root/app-login/div/div/div[2]/form/div/div[2]/div/input");
     By signInButton = By.xpath("/html/body/app-root/app-login/div/div/div[2]/form/div/div[3]/button");
-    By add_Beneficiaries_Button = By.xpath("//*[@id=\"content\"]/div/div/app-beneficiary-list/div/div/div[2]/a");
 
     public Knocing_Login(WebDriver driver) {
         this.driver = driver;
@@ -25,8 +24,6 @@ public class Knocing_Login {
             wait.until(ExpectedConditions.elementToBeClickable(passwordField)).sendKeys(password);
             wait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();
             Thread.sleep(500);
-            wait.until(ExpectedConditions.elementToBeClickable(add_Beneficiaries_Button)).click();
-
         }
         catch (TimeoutException e) {
             System.out.println("حدث خطأ: العنصر لم يكن قابلاً للنقر عليه في الوقت المحدد. " + e.getMessage());
